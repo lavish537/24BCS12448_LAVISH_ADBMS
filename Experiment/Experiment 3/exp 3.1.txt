@@ -1,0 +1,2 @@
+/* Write a query to count the number of students across departments who has scored more than 80 marks.*/
+select department, count(case when marks>80 then 1 else null end) as Dept_HighScore_Count from student group by department order by Dept_HighScore_Count asc;
