@@ -1,0 +1,24 @@
+declare
+cursor emp_cursor is select emp_id, emp_salary from employees;
+v_empid employees.emp_id%type;
+v_salary employees.emp_salary%type;
+salary_zero exception;
+begin
+    open emp_cursor;
+    fetch emp_cursor into v_empid,v_salary;
+    while emp_cursor%found
+    loop
+        if v_salary=0 then
+        raise salary_zero;
+        end if;
+        update employees set emp_salary=v_salary*1.10
+        where emp_id=v_empid;
+        fetch emp_cursor into v_empid, v_salary;
+    end loop;
+    close emp_cursor;
+    exception
+    when salary_zero then
+    DBMS_OUTPUT.PUT_LINE(' Salary is 0. cannot be incremented');
+    end;
+
+select * from employees

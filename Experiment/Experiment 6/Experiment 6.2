@@ -1,0 +1,7 @@
+create materialized view emps_view as 
+select emp_id, emp_name from employees where emp_id=101 
+with no data
+
+select * from emps_view;
+
+refresh materialized view emps_view;
