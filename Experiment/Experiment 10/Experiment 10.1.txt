@@ -1,0 +1,13 @@
+-- Finding the 2nd highest salary
+SELECT MAX(salary) AS second_highest 
+FROM employee 
+WHERE salary < (SELECT MAX(salary) FROM employee);
+
+-- Finding the 3rd highest salary
+SELECT MAX(salary) AS third_highest 
+FROM employee 
+WHERE salary < (
+    SELECT MAX(salary) 
+    FROM employee 
+    WHERE salary < (SELECT MAX(salary) FROM employee)
+);
