@@ -1,0 +1,2 @@
+-- Correct options: 1, 2 and 3.
+-- IS NOT NULL is not the same as != NULL.

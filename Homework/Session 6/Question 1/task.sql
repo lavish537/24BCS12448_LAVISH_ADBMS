@@ -1,0 +1,1 @@
+-- UNION removes duplicate rows, but UNION ALL keeps duplicate rows.

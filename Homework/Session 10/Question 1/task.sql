@@ -1,0 +1,9 @@
+SELECT
+CASE
+    WHEN price > 18 THEN 'High'
+    WHEN price BETWEEN 10 AND 18 THEN 'Medium'
+    ELSE 'Low'
+END AS Pay_Category,
+COUNT(*) AS dish_count
+FROM Orders
+GROUP BY Pay_Category;
